@@ -1,14 +1,14 @@
-export const USER_API_END_POINT = "http://localhost:3000/api/v1/user";
-export const TWEET_API_END_POINT = "http://localhost:3000/api/v1/tweet";
-export const NOTIFICATION_API_END_POINT =
-  "http://localhost:3000/api/v1/notification";
-
-// export const USER_API_END_POINT =
-//   "https://social-media-gv8p.onrender.com/api/v1/user";
-// export const TWEET_API_END_POINT =
-//   "https://social-media-gv8p.onrender.com/api/v1/tweet";
+// export const USER_API_END_POINT = "http://localhost:3000/api/v1/user";
+// export const TWEET_API_END_POINT = "http://localhost:3000/api/v1/tweet";
 // export const NOTIFICATION_API_END_POINT =
-//   "https://social-media-gv8p.onrender.com/api/v1/notification";
+//   "http://localhost:3000/api/v1/notification";
+
+export const USER_API_END_POINT =
+  "https://social-platform-e5tu.onrender.com/api/v1/user";
+export const TWEET_API_END_POINT =
+  "https://social-platform-e5tu.onrender.com/api/v1/tweet";
+export const NOTIFICATION_API_END_POINT =
+  "https://social-platform-e5tu.onrender.com/api/v1/notification";
 
 export const timeSince = (timestamp) => {
   let time = Date.parse(timestamp);
