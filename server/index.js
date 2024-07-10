@@ -27,7 +27,7 @@ const corsOptions = {
     "http://localhost:5173",
     "https://social-platform-5uqrpb654-ayush-sakalkales-projects.vercel.app",
     "https://social-platform-k4vhhe5cb-ayush-sakalkales-projects.vercel.app",
-    "https://social-platform-rosy.vercel.app/",
+    "https://social-platform-rosy.vercel.app",
     // Add more origins as necessary
   ],
   credentials: true,
