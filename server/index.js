@@ -28,8 +28,11 @@ const corsOptions = {
     "https://social-platform-5uqrpb654-ayush-sakalkales-projects.vercel.app",
     "https://social-platform-k4vhhe5cb-ayush-sakalkales-projects.vercel.app",
     "https://social-platform-rosy.vercel.app",
-    "social-platform-qmgh-git-main-ayush-sakalkales-projects.vercel.app",
+   
     "https://social-platform-qmgh.vercel.app",
+    "https://social-platform-e5tu.onrender.com/api/v1/user/login",
+     "social-platform-qmgh-git-main-ayush-sakalkales-projects.vercel.app",
+    
     // Add more origins as necessary
   ],
   credentials: true,
