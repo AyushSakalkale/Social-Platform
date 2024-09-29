@@ -1,2 +1,2 @@
 # Social-Platform
-created by - Ayush Sakalkale
+Created By - Ayush Sakalkale
