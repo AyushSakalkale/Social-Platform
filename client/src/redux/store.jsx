@@ -2,6 +2,7 @@ import {configureStore, combineReducers} from "@reduxjs/toolkit";
 import userSlice from "./userSlice";
 import tweetSlice from "./tweetSlice";
 import notificationSlice from "./notificationSlice";
+
 import {
   persistStore,
   persistReducer,
@@ -13,6 +14,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import {disasterSlice} from "./disasterSlice.jsx";
 
 const persistConfig = {
   key: "root",
@@ -24,6 +26,7 @@ const rootReducer = combineReducers({
   user: userSlice,
   tweet: tweetSlice,
   notification: notificationSlice,
+  disaster: disasterSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

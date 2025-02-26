@@ -36,10 +36,12 @@ const LoginPage = () => {
           withCredentials: true,
         }
       );
-      dispatch(getUser(res?.data?.user));
-      if (res?.data?.success) {
+      if (res?.data?.success && res?.data?.user) {
+        dispatch(getUser({...res.data.user}));
         toast.success(res.data.message);
         navigate("/");
+      } else {
+        toast.error("Invalid response from server");
       }
     } catch (error) {
       toast.error(error?.response?.data?.message);

@@ -6,9 +6,11 @@ import NotificationPage from "./Notification.jsx";
 import ProfilePage from "./ProfilePage.jsx";
 import ForgetPasswordPage from "./ForgotPassword.jsx";
 import ResetPasswordPage from "./ResetPassword.jsx";
+import DisasterManager from "./CDisasterManager.jsx";
+
 function Body() {
   return (
-    <div className="flex max-w-6xl mx-auto">
+    <div className="flex  mx-auto w-full">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
@@ -18,6 +20,7 @@ function Body() {
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/forget-password" element={<ForgetPasswordPage />} />
         <Route path="/reset-password/:token" element={<ResetPasswordPage />} />
+        <Route path="/alert" element={<DisasterManager />} />
       </Routes>
     </div>
   );

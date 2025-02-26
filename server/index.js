@@ -23,10 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 const corsOptions = {
-  origin: [
-   "https://social-platform-eta.vercel.app"
-    // Add more origins as necessary
-  ],
+  origin: ["https://social-platform-eta.vercel.app", "http://localhost:5173"],
   credentials: true,
 };
 

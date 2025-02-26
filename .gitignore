@@ -3,3 +3,5 @@ server/node_modules
 client/.env
 .vercel
 /node_modules
+socket-server/.env
+socket-server/node_modules
