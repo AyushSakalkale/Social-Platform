@@ -1,5 +1,5 @@
-import io from "socket.io-client";
 import {createSlice} from "@reduxjs/toolkit";
+import { alertSocket as socket } from "../config/socketConfig";
 
 const DEBUG = true;
 
@@ -14,15 +14,6 @@ function logError(...args) {
     console.error("[Client Error]", new Date().toISOString(), ...args);
   }
 }
-
-const socket = io("http://localhost:4000/alert", {
-  transports: ["websocket", "polling"],
-  withCredentials: true,
-  reconnection: true,
-  reconnectionDelay: 1000,
-  reconnectionDelayMax: 5000,
-  reconnectionAttempts: 5,
-});
 
 export const disasterSlice = createSlice({
   name: "disaster",

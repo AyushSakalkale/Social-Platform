@@ -44,7 +44,7 @@ const LoginPage = () => {
         toast.error("Invalid response from server");
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message);
+      toast.error(error?.response?.data?.message || "Connection error. Please try again.");
       console.log(error);
     }
   };

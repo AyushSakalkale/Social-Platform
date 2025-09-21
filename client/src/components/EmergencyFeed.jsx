@@ -1,26 +1,25 @@
 // src/components/emergency/EmergencyFeed.js
-import {useState, useEffect, useMemo} from "react";
-import {io} from "socket.io-client";
+import {useState, useEffect} from "react";
+import {useSelector} from "react-redux";
+import { alertSocket as socket } from "../config/socketConfig";
 import EmergencyTweet from "./EmergencyTweet";
 import EmergencyTweetForm from "./EmergencyTweetForm";
 import LocationTracker from "./LocationTracker";
-import {useSelector} from "react-redux";
 
 const EmergencyFeed = () => {
   const userId = useSelector((state) => state?.user?._id);
   const [emergencyTweets, setEmergencyTweets] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
-  const socket = useMemo(
-    () => io("http://localhost:4000/alert", {autoConnect: false}),
-    []
-  );
   useEffect(() => {
-    socket.connect();
+    if (!socket.connected) {
+      socket.connect();
+    }
 
     socket.on("connect", () => {
-      console.log("Connected to server", socket.id);
+      console.log("Connected to emergency alert server", socket.id);
     });
+
     socket.on("user-connected-server", () => {
       console.log("User connected to server", socket.id);
     });
@@ -33,7 +32,7 @@ const EmergencyFeed = () => {
     return () => {
       socket.disconnect();
     };
-  }, [socket]);
+  }, []);
 
   return (
     <div>

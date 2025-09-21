@@ -1,0 +1,4065 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T06:29:34+05:30"
+    creationTimestamp: "2025-04-14T00:59:41Z"
+    generateName: client-deployment-557d676d4f-
+    labels:
+      app: client
+      pod-template-hash: 557d676d4f
+    name: client-deployment-557d676d4f-6g8xn
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: client-deployment-557d676d4f
+      uid: 274ca460-9c75-46f8-add1-1dc150883909
+    resourceVersion: "11450"
+    uid: 43c7e6d4-41dc-4762-80ac-28212d045668
+  spec:
+    containers:
+    - image: social-platform-client:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: 80
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: client
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: 80
+          scheme: HTTP
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 200m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/nginx/conf.d/default.conf
+        name: nginx-config
+        subPath: nginx.conf
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-54l27
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: client-nginx-config
+      name: nginx-config
+    - name: kube-api-access-54l27
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:42Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:41Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:48Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:48Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:41Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://53228f167514b7c1d33d9d57b035246235464366402827772bd167910ca04214
+      image: social-platform-client:latest
+      imageID: docker://sha256:8f4e005a59df05743eac99eb9b145f05bfd3c2e05a60d8c7ff1d121a5e8c0a77
+      lastState: {}
+      name: client
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-14T00:59:42Z"
+      volumeMounts:
+      - mountPath: /etc/nginx/conf.d/default.conf
+        name: nginx-config
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-54l27
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.130
+    podIPs:
+    - ip: 10.244.0.130
+    qosClass: Burstable
+    startTime: "2025-04-14T00:59:41Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T06:29:34+05:30"
+    creationTimestamp: "2025-04-14T00:59:48Z"
+    generateName: client-deployment-557d676d4f-
+    labels:
+      app: client
+      pod-template-hash: 557d676d4f
+    name: client-deployment-557d676d4f-cj286
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: client-deployment-557d676d4f
+      uid: 274ca460-9c75-46f8-add1-1dc150883909
+    resourceVersion: "11486"
+    uid: 59cf903a-c985-444b-bc0d-4a33eae819c0
+  spec:
+    containers:
+    - image: social-platform-client:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: 80
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: client
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: 80
+          scheme: HTTP
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 200m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/nginx/conf.d/default.conf
+        name: nginx-config
+        subPath: nginx.conf
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9mpfm
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: client-nginx-config
+      name: nginx-config
+    - name: kube-api-access-9mpfm
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:49Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:48Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:55Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:55Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:48Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://f3311bec6a025f16102143b45aae1905777de8577bd83e35a127a0395455199d
+      image: social-platform-client:latest
+      imageID: docker://sha256:8f4e005a59df05743eac99eb9b145f05bfd3c2e05a60d8c7ff1d121a5e8c0a77
+      lastState: {}
+      name: client
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-14T00:59:49Z"
+      volumeMounts:
+      - mountPath: /etc/nginx/conf.d/default.conf
+        name: nginx-config
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-9mpfm
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.131
+    podIPs:
+    - ip: 10.244.0.131
+    qosClass: Burstable
+    startTime: "2025-04-14T00:59:48Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T06:29:34+05:30"
+    creationTimestamp: "2025-04-14T00:59:34Z"
+    generateName: client-deployment-557d676d4f-
+    labels:
+      app: client
+      pod-template-hash: 557d676d4f
+    name: client-deployment-557d676d4f-hjqkt
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: client-deployment-557d676d4f
+      uid: 274ca460-9c75-46f8-add1-1dc150883909
+    resourceVersion: "11414"
+    uid: 3dc8f8ae-aa4b-4e59-9ce8-d54c1b258a29
+  spec:
+    containers:
+    - image: social-platform-client:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: 80
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: client
+      ports:
+      - containerPort: 80
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /
+          port: 80
+          scheme: HTTP
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 200m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /etc/nginx/conf.d/default.conf
+        name: nginx-config
+        subPath: nginx.conf
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-22hgt
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: client-nginx-config
+      name: nginx-config
+    - name: kube-api-access-22hgt
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:35Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:34Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:41Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:41Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-14T00:59:34Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://3b007d40ad3f59d5fc2d7ea005c0bae82c75e45a7fa374e35be07c1abde5ef65
+      image: social-platform-client:latest
+      imageID: docker://sha256:8f4e005a59df05743eac99eb9b145f05bfd3c2e05a60d8c7ff1d121a5e8c0a77
+      lastState: {}
+      name: client
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-14T00:59:34Z"
+      volumeMounts:
+      - mountPath: /etc/nginx/conf.d/default.conf
+        name: nginx-config
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-22hgt
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.129
+    podIPs:
+    - ip: 10.244.0.129
+    qosClass: Burstable
+    startTime: "2025-04-14T00:59:34Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    generateName: mongodb-
+    labels:
+      app: mongodb
+      apps.kubernetes.io/pod-index: "0"
+      controller-revision-hash: mongodb-c557b67dc
+      statefulset.kubernetes.io/pod-name: mongodb-0
+    name: mongodb-0
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: StatefulSet
+      name: mongodb
+      uid: 8cf22f28-3e87-4a6f-a7c0-01f89d004d8b
+    resourceVersion: "5776"
+    uid: 440a62dc-e230-493c-937e-c530568f563a
+  spec:
+    containers:
+    - image: mongo:latest
+      imagePullPolicy: Always
+      name: mongodb
+      ports:
+      - containerPort: 27017
+        protocol: TCP
+      resources:
+        limits:
+          cpu: 500m
+          memory: 1Gi
+        requests:
+          cpu: 200m
+          memory: 512Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /data/db
+        name: mongodb-storage
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-jgxf7
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    hostname: mongodb-0
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    subdomain: mongodb-service
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: mongodb-storage
+      persistentVolumeClaim:
+        claimName: mongodb-storage-mongodb-0
+    - name: kube-api-access-jgxf7
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:22Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:50:25Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:22Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:22Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:50:25Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://09a0c9f6090bd578c803d5e8d4a7888e30405aae8cb4a493be2136eedaf57e4c
+      image: mongo:latest
+      imageID: docker-pullable://mongo@sha256:ab6556e6d71d9773dd74002db924dc637abb49d079d6ef945982af3078fdf22c
+      lastState:
+        terminated:
+          containerID: docker://2c31a53e08e945ffb50fd318aa4dcb01c88b741bf0976c059c28658577f51881
+          exitCode: 0
+          finishedAt: "2025-04-13T23:03:50Z"
+          reason: Completed
+          startedAt: "2025-04-13T22:50:29Z"
+      name: mongodb
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-13T23:04:21Z"
+      volumeMounts:
+      - mountPath: /data/db
+        name: mongodb-storage
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-jgxf7
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.87
+    podIPs:
+    - ip: 10.244.0.87
+    qosClass: Burstable
+    startTime: "2025-04-13T22:50:25Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    creationTimestamp: "2025-04-13T22:50:26Z"
+    generateName: redis-deployment-5586cd64-
+    labels:
+      app: redis
+      pod-template-hash: 5586cd64
+    name: redis-deployment-5586cd64-ztcn4
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: redis-deployment-5586cd64
+      uid: a4924fe1-e6ba-430c-b3f2-cf0c16cc3b49
+    resourceVersion: "5769"
+    uid: 8b15a205-acff-4ea3-a1c8-d999cdf2c1a7
+  spec:
+    containers:
+    - image: redis:alpine
+      imagePullPolicy: IfNotPresent
+      name: redis
+      ports:
+      - containerPort: 6379
+        protocol: TCP
+      resources:
+        limits:
+          cpu: 200m
+          memory: 256Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /data
+        name: redis-storage
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-gk7hq
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: redis-storage
+      persistentVolumeClaim:
+        claimName: redis-pvc
+    - name: kube-api-access-gk7hq
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:21Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:50:26Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:21Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:21Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:50:26Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://c898e9c9b42fa62d16d73419f713ac8c63c825bf9c5674f59228f00f17df418c
+      image: redis:alpine
+      imageID: docker-pullable://redis@sha256:02419de7eddf55aa5bcf49efb74e88fa8d931b4d77c07eff8a6b2144472b6952
+      lastState:
+        terminated:
+          containerID: docker://766173e1c83b1651cc0dd82ca230847671eefe8248e35324efe5323ddcbd86ef
+          exitCode: 0
+          finishedAt: "2025-04-13T23:03:49Z"
+          reason: Completed
+          startedAt: "2025-04-13T22:50:26Z"
+      name: redis
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-13T23:04:18Z"
+      volumeMounts:
+      - mountPath: /data
+        name: redis-storage
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-gk7hq
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.91
+    podIPs:
+    - ip: 10.244.0.91
+    qosClass: Burstable
+    startTime: "2025-04-13T22:50:26Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+    creationTimestamp: "2025-04-13T22:53:06Z"
+    generateName: server-deployment-7744dc6ddf-
+    labels:
+      app: server
+      pod-template-hash: 7744dc6ddf
+    name: server-deployment-7744dc6ddf-fc74x
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server-deployment-7744dc6ddf
+      uid: e5793f7e-0743-4354-bf5a-ddfa0631688d
+    resourceVersion: "5804"
+    uid: 46b11acd-fe63-47c7-8f3d-1fa7eb196ef8
+  spec:
+    containers:
+    - env:
+      - name: MONGODB_URI
+        valueFrom:
+          secretKeyRef:
+            key: mongodb-uri
+            name: app-secrets
+      - name: JWT_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: jwt-secret
+            name: app-secrets
+      - name: CLOUDINARY_CLOUD_NAME
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-cloud-name
+            name: app-secrets
+      - name: CLOUDINARY_API_KEY
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-api-key
+            name: app-secrets
+      - name: CLOUDINARY_API_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-api-secret
+            name: app-secrets
+      - name: NODE_ENV
+        value: production
+      image: social-platform-server:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /health
+          port: 3000
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: server
+      ports:
+      - containerPort: 3000
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /health
+          port: 3000
+          scheme: HTTP
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-ptxql
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-ptxql
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:20Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:53:06Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:23Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:23Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:53:06Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://e3b631749533f290df3a61743f6fd05dd7c1eceba0f3aa208ec3025910961a57
+      image: social-platform-server:latest
+      imageID: docker://sha256:dc5fd57074c40500bfcec4765da2993f4d30641d27a187aa84b437632f920b74
+      lastState:
+        terminated:
+          containerID: docker://71ed0f509fe9affe863409af019432fdce136366401cc68ada25151ad50811fe
+          exitCode: 143
+          finishedAt: "2025-04-13T23:03:50Z"
+          reason: Error
+          startedAt: "2025-04-13T22:53:07Z"
+      name: server
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-13T23:04:18Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-ptxql
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.82
+    podIPs:
+    - ip: 10.244.0.82
+    qosClass: Burstable
+    startTime: "2025-04-13T22:53:06Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+    creationTimestamp: "2025-04-13T22:53:21Z"
+    generateName: server-deployment-7744dc6ddf-
+    labels:
+      app: server
+      pod-template-hash: 7744dc6ddf
+    name: server-deployment-7744dc6ddf-fmpms
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server-deployment-7744dc6ddf
+      uid: e5793f7e-0743-4354-bf5a-ddfa0631688d
+    resourceVersion: "5824"
+    uid: a27ad8d3-6e8e-40a7-88ad-cad0cbcacd7a
+  spec:
+    containers:
+    - env:
+      - name: MONGODB_URI
+        valueFrom:
+          secretKeyRef:
+            key: mongodb-uri
+            name: app-secrets
+      - name: JWT_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: jwt-secret
+            name: app-secrets
+      - name: CLOUDINARY_CLOUD_NAME
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-cloud-name
+            name: app-secrets
+      - name: CLOUDINARY_API_KEY
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-api-key
+            name: app-secrets
+      - name: CLOUDINARY_API_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-api-secret
+            name: app-secrets
+      - name: NODE_ENV
+        value: production
+      image: social-platform-server:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /health
+          port: 3000
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: server
+      ports:
+      - containerPort: 3000
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /health
+          port: 3000
+          scheme: HTTP
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-qp7mc
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-qp7mc
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:20Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:53:21Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:27Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:27Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:53:21Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://c99df35d62ea220e8b8b5e7606d1db8a5d17c40d9b29578425b4f133101eaa78
+      image: social-platform-server:latest
+      imageID: docker://sha256:dc5fd57074c40500bfcec4765da2993f4d30641d27a187aa84b437632f920b74
+      lastState:
+        terminated:
+          containerID: docker://466e9b127997438bc931ab634babb85893bd978a4d2a49fe58daf68c07e69b8d
+          exitCode: 143
+          finishedAt: "2025-04-13T23:03:50Z"
+          reason: Error
+          startedAt: "2025-04-13T22:53:21Z"
+      name: server
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-13T23:04:18Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-qp7mc
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.89
+    podIPs:
+    - ip: 10.244.0.89
+    qosClass: Burstable
+    startTime: "2025-04-13T22:53:21Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+    creationTimestamp: "2025-04-13T22:53:13Z"
+    generateName: server-deployment-7744dc6ddf-
+    labels:
+      app: server
+      pod-template-hash: 7744dc6ddf
+    name: server-deployment-7744dc6ddf-kw7df
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: server-deployment-7744dc6ddf
+      uid: e5793f7e-0743-4354-bf5a-ddfa0631688d
+    resourceVersion: "5793"
+    uid: a96bb15b-3e6c-4d29-8453-749b62cf6555
+  spec:
+    containers:
+    - env:
+      - name: MONGODB_URI
+        valueFrom:
+          secretKeyRef:
+            key: mongodb-uri
+            name: app-secrets
+      - name: JWT_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: jwt-secret
+            name: app-secrets
+      - name: CLOUDINARY_CLOUD_NAME
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-cloud-name
+            name: app-secrets
+      - name: CLOUDINARY_API_KEY
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-api-key
+            name: app-secrets
+      - name: CLOUDINARY_API_SECRET
+        valueFrom:
+          secretKeyRef:
+            key: cloudinary-api-secret
+            name: app-secrets
+      - name: NODE_ENV
+        value: production
+      image: social-platform-server:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /health
+          port: 3000
+          scheme: HTTP
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: server
+      ports:
+      - containerPort: 3000
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /health
+          port: 3000
+          scheme: HTTP
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-wlcpx
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-wlcpx
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:21Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:53:13Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:23Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:23Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T22:53:13Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://0c9061a062f8270bf75cbcab6e3d339f125c2a50929ab9a58305391839b8c2ee
+      image: social-platform-server:latest
+      imageID: docker://sha256:dc5fd57074c40500bfcec4765da2993f4d30641d27a187aa84b437632f920b74
+      lastState:
+        terminated:
+          containerID: docker://6c30a2651e572499e223f897c052b37c67f33973b072c5bb0f9e43e615a64ae0
+          exitCode: 143
+          finishedAt: "2025-04-13T23:03:50Z"
+          reason: Error
+          startedAt: "2025-04-13T22:53:14Z"
+      name: server
+      ready: true
+      restartCount: 1
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-13T23:04:18Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-wlcpx
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.93
+    podIPs:
+    - ip: 10.244.0.93
+    qosClass: Burstable
+    startTime: "2025-04-13T22:53:13Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+    creationTimestamp: "2025-04-13T23:05:06Z"
+    generateName: socket-server-deployment-7bccc47bbd-
+    labels:
+      app: socket-server
+      pod-template-hash: 7bccc47bbd
+    name: socket-server-deployment-7bccc47bbd-fcmwz
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: socket-server-deployment-7bccc47bbd
+      uid: 8ffe12e0-6973-420d-a536-b02a5e5fa393
+    resourceVersion: "6008"
+    uid: fecf1114-b9db-41f4-91f9-abe89e26740f
+  spec:
+    containers:
+    - env:
+      - name: REDIS_URL
+        value: redis://10.244.0.91:6379
+      - name: NODE_ENV
+        value: production
+      image: social-platform-socket-server:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        tcpSocket:
+          port: 4000
+        timeoutSeconds: 1
+      name: socket-server
+      ports:
+      - containerPort: 4000
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        tcpSocket:
+          port: 4000
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-4v2dm
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-4v2dm
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:07Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:06Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:13Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:13Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:06Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://bb6f33d43d65347089f84fd35aa3b083fc9082df3f970435c410bcab6623da04
+      image: social-platform-socket-server:latest
+      imageID: docker://sha256:949241143d300baf904bc51baed54d2487fd49f27dddaaa056d3923a71007693
+      lastState: {}
+      name: socket-server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-13T23:05:06Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-4v2dm
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.95
+    podIPs:
+    - ip: 10.244.0.95
+    qosClass: Burstable
+    startTime: "2025-04-13T23:05:06Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+    creationTimestamp: "2025-04-13T23:05:13Z"
+    generateName: socket-server-deployment-7bccc47bbd-
+    labels:
+      app: socket-server
+      pod-template-hash: 7bccc47bbd
+    name: socket-server-deployment-7bccc47bbd-kx7cb
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: socket-server-deployment-7bccc47bbd
+      uid: 8ffe12e0-6973-420d-a536-b02a5e5fa393
+    resourceVersion: "6072"
+    uid: ebfa5931-3934-4c52-a1cd-7f391740b977
+  spec:
+    containers:
+    - env:
+      - name: REDIS_URL
+        value: redis://10.244.0.91:6379
+      - name: NODE_ENV
+        value: production
+      image: social-platform-socket-server:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        tcpSocket:
+          port: 4000
+        timeoutSeconds: 1
+      name: socket-server
+      ports:
+      - containerPort: 4000
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        tcpSocket:
+          port: 4000
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-zwz96
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-zwz96
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:14Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:13Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:20Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:20Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:13Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://1b654aaa479a0c6ff3d7a277b4cb8aea3cb1f3ca451cb7e522785191e20a5085
+      image: social-platform-socket-server:latest
+      imageID: docker://sha256:949241143d300baf904bc51baed54d2487fd49f27dddaaa056d3923a71007693
+      lastState: {}
+      name: socket-server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-13T23:05:13Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-zwz96
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.96
+    podIPs:
+    - ip: 10.244.0.96
+    qosClass: Burstable
+    startTime: "2025-04-13T23:05:13Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+    creationTimestamp: "2025-04-13T23:04:58Z"
+    generateName: socket-server-deployment-7bccc47bbd-
+    labels:
+      app: socket-server
+      pod-template-hash: 7bccc47bbd
+    name: socket-server-deployment-7bccc47bbd-vq2c7
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: socket-server-deployment-7bccc47bbd
+      uid: 8ffe12e0-6973-420d-a536-b02a5e5fa393
+    resourceVersion: "5962"
+    uid: 6496a9bb-098d-477c-9013-4b2369524d6c
+  spec:
+    containers:
+    - env:
+      - name: REDIS_URL
+        value: redis://10.244.0.91:6379
+      - name: NODE_ENV
+        value: production
+      image: social-platform-socket-server:latest
+      imagePullPolicy: Never
+      livenessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 30
+        periodSeconds: 10
+        successThreshold: 1
+        tcpSocket:
+          port: 4000
+        timeoutSeconds: 1
+      name: socket-server
+      ports:
+      - containerPort: 4000
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        successThreshold: 1
+        tcpSocket:
+          port: 4000
+        timeoutSeconds: 1
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
+        requests:
+          cpu: 200m
+          memory: 256Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-999bq
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    nodeName: minikube
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-999bq
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:59Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:58Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:06Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:05:06Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2025-04-13T23:04:58Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: docker://311a88ae292ddcc4a7bcc54a3eea69a60adbdc7213f458a81e9ed12001202ff4
+      image: social-platform-socket-server:latest
+      imageID: docker://sha256:949241143d300baf904bc51baed54d2487fd49f27dddaaa056d3923a71007693
+      lastState: {}
+      name: socket-server
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2025-04-13T23:04:59Z"
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-999bq
+        readOnly: true
+        recursiveReadOnly: Disabled
+    hostIP: 192.168.49.2
+    hostIPs:
+    - ip: 192.168.49.2
+    phase: Running
+    podIP: 10.244.0.94
+    podIPs:
+    - ip: 10.244.0.94
+    qosClass: Burstable
+    startTime: "2025-04-13T23:04:58Z"
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"client-service","namespace":"social-platform"},"spec":{"ports":[{"port":80,"targetPort":80}],"selector":{"app":"client"},"type":"LoadBalancer"}}
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    name: client-service
+    namespace: social-platform
+    resourceVersion: "4257"
+    uid: 7984d5a2-2874-44c9-80f0-6c5b21a47806
+  spec:
+    allocateLoadBalancerNodePorts: true
+    clusterIP: 10.97.219.95
+    clusterIPs:
+    - 10.97.219.95
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30540
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: client
+    sessionAffinity: None
+    type: LoadBalancer
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"mongodb-service","namespace":"social-platform"},"spec":{"ports":[{"port":27017,"targetPort":27017}],"selector":{"app":"mongodb"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    name: mongodb-service
+    namespace: social-platform
+    resourceVersion: "4281"
+    uid: 0373e708-1963-4a25-adc4-f024833ede3f
+  spec:
+    clusterIP: 10.103.71.95
+    clusterIPs:
+    - 10.103.71.95
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 27017
+      protocol: TCP
+      targetPort: 27017
+    selector:
+      app: mongodb
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"redis-service","namespace":"social-platform"},"spec":{"ports":[{"port":6379,"targetPort":6379}],"selector":{"app":"redis"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-04-13T22:50:26Z"
+    name: redis-service
+    namespace: social-platform
+    resourceVersion: "4296"
+    uid: 82a8a087-7d3d-4df2-89a2-96e354272206
+  spec:
+    clusterIP: 10.96.233.77
+    clusterIPs:
+    - 10.96.233.77
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 6379
+      protocol: TCP
+      targetPort: 6379
+    selector:
+      app: redis
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"server-service","namespace":"social-platform"},"spec":{"ports":[{"port":3000,"targetPort":3000}],"selector":{"app":"server"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-04-13T22:50:26Z"
+    name: server-service
+    namespace: social-platform
+    resourceVersion: "4314"
+    uid: 502d9820-624b-4fe0-9ef0-f182e7e54c8a
+  spec:
+    clusterIP: 10.110.22.237
+    clusterIPs:
+    - 10.110.22.237
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 3000
+      protocol: TCP
+      targetPort: 3000
+    selector:
+      app: server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"socket-server-service","namespace":"social-platform"},"spec":{"ports":[{"port":4000,"targetPort":4000}],"selector":{"app":"socket-server"},"type":"ClusterIP"}}
+    creationTimestamp: "2025-04-13T22:50:26Z"
+    name: socket-server-service
+    namespace: social-platform
+    resourceVersion: "4348"
+    uid: 2d5b5536-e032-4723-91c4-e19af2bc45df
+  spec:
+    clusterIP: 10.103.116.197
+    clusterIPs:
+    - 10.103.116.197
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - port: 4000
+      protocol: TCP
+      targetPort: 4000
+    selector:
+      app: socket-server
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "14"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"client-deployment","namespace":"social-platform"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"client"}},"template":{"metadata":{"labels":{"app":"client"}},"spec":{"containers":[{"image":"social-platform-client:latest","imagePullPolicy":"Never","livenessProbe":{"httpGet":{"path":"/","port":80},"initialDelaySeconds":30,"periodSeconds":10},"name":"client","ports":[{"containerPort":80}],"readinessProbe":{"httpGet":{"path":"/","port":80},"initialDelaySeconds":5,"periodSeconds":5},"resources":{"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}},"volumeMounts":[{"mountPath":"/etc/nginx/conf.d/default.conf","name":"nginx-config","subPath":"nginx.conf"}]}],"volumes":[{"configMap":{"name":"client-nginx-config"},"name":"nginx-config"}]}}}}
+    creationTimestamp: "2025-04-14T00:13:30Z"
+    generation: 14
+    name: client-deployment
+    namespace: social-platform
+    resourceVersion: "11499"
+    uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 3
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: client
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:29:34+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: nginx.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    availableReplicas: 3
+    conditions:
+    - lastTransitionTime: "2025-04-14T00:41:59Z"
+      lastUpdateTime: "2025-04-14T00:41:59Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2025-04-14T00:30:53Z"
+      lastUpdateTime: "2025-04-14T00:59:55Z"
+      message: ReplicaSet "client-deployment-557d676d4f" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 14
+    readyReplicas: 3
+    replicas: 3
+    updatedReplicas: 3
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"redis-deployment","namespace":"social-platform"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"redis"}},"template":{"metadata":{"labels":{"app":"redis"}},"spec":{"containers":[{"image":"redis:alpine","name":"redis","ports":[{"containerPort":6379}],"resources":{"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}},"volumeMounts":[{"mountPath":"/data","name":"redis-storage"}]}],"volumes":[{"name":"redis-storage","persistentVolumeClaim":{"claimName":"redis-pvc"}}]}}}}
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    generation: 1
+    name: redis-deployment
+    namespace: social-platform
+    resourceVersion: "5774"
+    uid: fdcc30c9-9210-4df9-87db-97c580a3d9e2
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: redis
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: redis
+      spec:
+        containers:
+        - image: redis:alpine
+          imagePullPolicy: IfNotPresent
+          name: redis
+          ports:
+          - containerPort: 6379
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /data
+            name: redis-storage
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: redis-storage
+          persistentVolumeClaim:
+            claimName: redis-pvc
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2025-04-13T22:50:26Z"
+      lastUpdateTime: "2025-04-13T22:50:27Z"
+      message: ReplicaSet "redis-deployment-5586cd64" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2025-04-13T23:04:21Z"
+      lastUpdateTime: "2025-04-13T23:04:21Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updatedReplicas: 1
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "2"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"server-deployment","namespace":"social-platform"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"server"}},"template":{"metadata":{"labels":{"app":"server"}},"spec":{"containers":[{"env":[{"name":"MONGODB_URI","valueFrom":{"secretKeyRef":{"key":"mongodb-uri","name":"app-secrets"}}},{"name":"JWT_SECRET","valueFrom":{"secretKeyRef":{"key":"jwt-secret","name":"app-secrets"}}},{"name":"CLOUDINARY_CLOUD_NAME","valueFrom":{"secretKeyRef":{"key":"cloudinary-cloud-name","name":"app-secrets"}}},{"name":"CLOUDINARY_API_KEY","valueFrom":{"secretKeyRef":{"key":"cloudinary-api-key","name":"app-secrets"}}},{"name":"CLOUDINARY_API_SECRET","valueFrom":{"secretKeyRef":{"key":"cloudinary-api-secret","name":"app-secrets"}}},{"name":"NODE_ENV","value":"production"}],"image":"social-platform-server:latest","imagePullPolicy":"Never","livenessProbe":{"httpGet":{"path":"/health","port":3000},"initialDelaySeconds":30,"periodSeconds":10},"name":"server","ports":[{"containerPort":3000}],"readinessProbe":{"httpGet":{"path":"/health","port":3000},"initialDelaySeconds":5,"periodSeconds":5},"resources":{"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"256Mi"}}}]}}}}
+    creationTimestamp: "2025-04-13T22:50:26Z"
+    generation: 2
+    name: server-deployment
+    namespace: social-platform
+    resourceVersion: "5828"
+    uid: 15d40af6-b449-43cb-9909-270bc7039447
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 3
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: server
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+        creationTimestamp: null
+        labels:
+          app: server
+      spec:
+        containers:
+        - env:
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+                key: mongodb-uri
+                name: app-secrets
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: jwt-secret
+                name: app-secrets
+          - name: CLOUDINARY_CLOUD_NAME
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-cloud-name
+                name: app-secrets
+          - name: CLOUDINARY_API_KEY
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-api-key
+                name: app-secrets
+          - name: CLOUDINARY_API_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-api-secret
+                name: app-secrets
+          - name: NODE_ENV
+            value: production
+          image: social-platform-server:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: server
+          ports:
+          - containerPort: 3000
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    conditions:
+    - lastTransitionTime: "2025-04-13T22:50:26Z"
+      lastUpdateTime: "2025-04-13T22:53:28Z"
+      message: ReplicaSet "server-deployment-7744dc6ddf" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2025-04-13T23:04:27Z"
+      lastUpdateTime: "2025-04-13T23:04:27Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    observedGeneration: 2
+    readyReplicas: 3
+    replicas: 3
+    updatedReplicas: 3
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "3"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"name":"socket-server-deployment","namespace":"social-platform"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"socket-server"}},"template":{"metadata":{"labels":{"app":"socket-server"}},"spec":{"containers":[{"env":[{"name":"REDIS_URL","value":"redis://redis-service:6379"},{"name":"NODE_ENV","value":"production"}],"image":"social-platform-socket-server:latest","imagePullPolicy":"Never","livenessProbe":{"initialDelaySeconds":30,"periodSeconds":10,"tcpSocket":{"port":4000}},"name":"socket-server","ports":[{"containerPort":4000}],"readinessProbe":{"initialDelaySeconds":5,"periodSeconds":5,"tcpSocket":{"port":4000}},"resources":{"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"256Mi"}}}]}}}}
+    creationTimestamp: "2025-04-13T22:50:26Z"
+    generation: 3
+    name: socket-server-deployment
+    namespace: social-platform
+    resourceVersion: "6086"
+    uid: 5531b930-7dbd-426b-80bb-af136c95a9aa
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 3
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: socket-server
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+        creationTimestamp: null
+        labels:
+          app: socket-server
+      spec:
+        containers:
+        - env:
+          - name: REDIS_URL
+            value: redis://10.244.0.91:6379
+          - name: NODE_ENV
+            value: production
+          image: social-platform-socket-server:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 4000
+            timeoutSeconds: 1
+          name: socket-server
+          ports:
+          - containerPort: 4000
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            tcpSocket:
+              port: 4000
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    conditions:
+    - lastTransitionTime: "2025-04-13T23:04:23Z"
+      lastUpdateTime: "2025-04-13T23:04:23Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2025-04-13T22:50:26Z"
+      lastUpdateTime: "2025-04-13T23:05:20Z"
+      message: ReplicaSet "socket-server-deployment-7bccc47bbd" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 3
+    readyReplicas: 3
+    replicas: 3
+    updatedReplicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "5"
+      deployment.kubernetes.io/revision-history: "3"
+    creationTimestamp: "2025-04-14T00:17:31Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: 555586f97b
+    name: client-deployment-555586f97b
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "10305"
+    uid: 893f96a0-c3c6-4258-af3d-9b5ec6c36e24
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 555586f97b
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T05:47:30+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 555586f97b
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: nginx.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "14"
+    creationTimestamp: "2025-04-14T00:59:34Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: 557d676d4f
+    name: client-deployment-557d676d4f
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "11489"
+    uid: 274ca460-9c75-46f8-add1-1dc150883909
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 557d676d4f
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:29:34+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 557d676d4f
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: nginx.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    availableReplicas: 3
+    fullyLabeledReplicas: 3
+    observedGeneration: 3
+    readyReplicas: 3
+    replicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "9"
+    creationTimestamp: "2025-04-14T00:37:17Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: 55b478f8bc
+    name: client-deployment-55b478f8bc
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "10831"
+    uid: 3cd0b682-0dc8-4cd4-9db0-9ba12494de48
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 55b478f8bc
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:06:11+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 55b478f8bc
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: ngnix.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "13"
+    creationTimestamp: "2025-04-14T00:53:37Z"
+    generation: 6
+    labels:
+      app: client
+      pod-template-hash: 55b8bb5f94
+    name: client-deployment-55b8bb5f94
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "11498"
+    uid: 23afc9cf-7ae1-4cc6-8ddf-a4860e88d7e0
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 55b8bb5f94
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:23:37+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 55b8bb5f94
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: nginx.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 6
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "8"
+    creationTimestamp: "2025-04-14T00:36:11Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: 587d886898
+    name: client-deployment-587d886898
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "10795"
+    uid: 375d4ba3-2e14-48e7-9323-fff3451964d0
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 587d886898
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:06:11+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 587d886898
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: default.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "10"
+    creationTimestamp: "2025-04-14T00:37:19Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: 5f876c8bb
+    name: client-deployment-5f876c8bb
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "10873"
+    uid: 934f02b8-1b76-47c2-b91d-800326258da0
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 5f876c8bb
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:07:19+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 5f876c8bb
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: ngnix.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "7"
+    creationTimestamp: "2025-04-14T00:36:09Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: 69dcc56bcd
+    name: client-deployment-69dcc56bcd
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "10702"
+    uid: 2bba1e7f-4e8e-4b67-8edf-1abf1fefac9b
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 69dcc56bcd
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:04:40+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 69dcc56bcd
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: default.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "11"
+    creationTimestamp: "2025-04-14T00:40:35Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: 6f677f4c68
+    name: client-deployment-6f677f4c68
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "10911"
+    uid: 1fcdb079-14ef-4800-9040-1990babffe79
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 6f677f4c68
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:07:19+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 6f677f4c68
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: nginx.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "12"
+    creationTimestamp: "2025-04-14T00:41:38Z"
+    generation: 7
+    labels:
+      app: client
+      pod-template-hash: 7c54497b56
+    name: client-deployment-7c54497b56
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "11265"
+    uid: 21e5d5cb-7337-42c6-91db-8f87e1c9c6a5
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 7c54497b56
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:11:38+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 7c54497b56
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: nginx.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 7
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "4"
+    creationTimestamp: "2025-04-14T00:30:53Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: 94585bcff
+    name: client-deployment-94585bcff
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "10416"
+    uid: 1d2fb35d-a24e-4ace-9a0d-811f6bac3edf
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: 94585bcff
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T05:47:30+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: 94585bcff
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: default.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "6"
+    creationTimestamp: "2025-04-14T00:34:40Z"
+    generation: 3
+    labels:
+      app: client
+      pod-template-hash: d7dc6f75c
+    name: client-deployment-d7dc6f75c
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: client-deployment
+      uid: 687dfa16-8b11-492d-be95-e9b7ab322f2c
+    resourceVersion: "10460"
+    uid: 19e7fdf4-3543-47d0-ab35-638a9db7db28
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: client
+        pod-template-hash: d7dc6f75c
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T06:04:40+05:30"
+        creationTimestamp: null
+        labels:
+          app: client
+          pod-template-hash: d7dc6f75c
+      spec:
+        containers:
+        - image: social-platform-client:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: client
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /etc/nginx/conf.d/default.conf
+            name: nginx-config
+            subPath: nginx.conf
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: client-nginx-config
+          name: nginx-config
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "1"
+      deployment.kubernetes.io/max-replicas: "2"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    generation: 1
+    labels:
+      app: redis
+      pod-template-hash: 5586cd64
+    name: redis-deployment-5586cd64
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: redis-deployment
+      uid: fdcc30c9-9210-4df9-87db-97c580a3d9e2
+    resourceVersion: "5772"
+    uid: a4924fe1-e6ba-430c-b3f2-cf0c16cc3b49
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: redis
+        pod-template-hash: 5586cd64
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: redis
+          pod-template-hash: 5586cd64
+      spec:
+        containers:
+        - image: redis:alpine
+          imagePullPolicy: IfNotPresent
+          name: redis
+          ports:
+          - containerPort: 6379
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 200m
+              memory: 256Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /data
+            name: redis-storage
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - name: redis-storage
+          persistentVolumeClaim:
+            claimName: redis-pvc
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2025-04-13T22:50:26Z"
+    generation: 4
+    labels:
+      app: server
+      pod-template-hash: 67c679bc4b
+    name: server-deployment-67c679bc4b
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: server-deployment
+      uid: 15d40af6-b449-43cb-9909-270bc7039447
+    resourceVersion: "5027"
+    uid: 5ad96f74-c3cd-4f58-a2d3-5f544b7604d6
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: server
+        pod-template-hash: 67c679bc4b
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: server
+          pod-template-hash: 67c679bc4b
+      spec:
+        containers:
+        - env:
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+                key: mongodb-uri
+                name: app-secrets
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: jwt-secret
+                name: app-secrets
+          - name: CLOUDINARY_CLOUD_NAME
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-cloud-name
+                name: app-secrets
+          - name: CLOUDINARY_API_KEY
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-api-key
+                name: app-secrets
+          - name: CLOUDINARY_API_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-api-secret
+                name: app-secrets
+          - name: NODE_ENV
+            value: production
+          image: social-platform-server:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: server
+          ports:
+          - containerPort: 3000
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 4
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "2"
+    creationTimestamp: "2025-04-13T22:53:06Z"
+    generation: 3
+    labels:
+      app: server
+      pod-template-hash: 7744dc6ddf
+    name: server-deployment-7744dc6ddf
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: server-deployment
+      uid: 15d40af6-b449-43cb-9909-270bc7039447
+    resourceVersion: "5827"
+    uid: e5793f7e-0743-4354-bf5a-ddfa0631688d
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: server
+        pod-template-hash: 7744dc6ddf
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+        creationTimestamp: null
+        labels:
+          app: server
+          pod-template-hash: 7744dc6ddf
+      spec:
+        containers:
+        - env:
+          - name: MONGODB_URI
+            valueFrom:
+              secretKeyRef:
+                key: mongodb-uri
+                name: app-secrets
+          - name: JWT_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: jwt-secret
+                name: app-secrets
+          - name: CLOUDINARY_CLOUD_NAME
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-cloud-name
+                name: app-secrets
+          - name: CLOUDINARY_API_KEY
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-api-key
+                name: app-secrets
+          - name: CLOUDINARY_API_SECRET
+            valueFrom:
+              secretKeyRef:
+                key: cloudinary-api-secret
+                name: app-secrets
+          - name: NODE_ENV
+            value: production
+          image: social-platform-server:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: server
+          ports:
+          - containerPort: 3000
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /health
+              port: 3000
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    fullyLabeledReplicas: 3
+    observedGeneration: 3
+    readyReplicas: 3
+    replicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "2"
+    creationTimestamp: "2025-04-13T22:53:06Z"
+    generation: 6
+    labels:
+      app: socket-server
+      pod-template-hash: 6cc69bcfc6
+    name: socket-server-deployment-6cc69bcfc6
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: socket-server-deployment
+      uid: 5531b930-7dbd-426b-80bb-af136c95a9aa
+    resourceVersion: "6085"
+    uid: 99224884-f624-4222-bc68-eafaf95f325f
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: socket-server
+        pod-template-hash: 6cc69bcfc6
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+        creationTimestamp: null
+        labels:
+          app: socket-server
+          pod-template-hash: 6cc69bcfc6
+      spec:
+        containers:
+        - env:
+          - name: REDIS_URL
+            value: redis://redis-service:6379
+          - name: NODE_ENV
+            value: production
+          image: social-platform-socket-server:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 4000
+            timeoutSeconds: 1
+          name: socket-server
+          ports:
+          - containerPort: 4000
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            tcpSocket:
+              port: 4000
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 6
+    replicas: 0
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "3"
+    creationTimestamp: "2025-04-13T23:04:58Z"
+    generation: 3
+    labels:
+      app: socket-server
+      pod-template-hash: 7bccc47bbd
+    name: socket-server-deployment-7bccc47bbd
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: socket-server-deployment
+      uid: 5531b930-7dbd-426b-80bb-af136c95a9aa
+    resourceVersion: "6075"
+    uid: 8ffe12e0-6973-420d-a536-b02a5e5fa393
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: socket-server
+        pod-template-hash: 7bccc47bbd
+    template:
+      metadata:
+        annotations:
+          kubectl.kubernetes.io/restartedAt: "2025-04-14T04:23:06+05:30"
+        creationTimestamp: null
+        labels:
+          app: socket-server
+          pod-template-hash: 7bccc47bbd
+      spec:
+        containers:
+        - env:
+          - name: REDIS_URL
+            value: redis://10.244.0.91:6379
+          - name: NODE_ENV
+            value: production
+          image: social-platform-socket-server:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 4000
+            timeoutSeconds: 1
+          name: socket-server
+          ports:
+          - containerPort: 4000
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            tcpSocket:
+              port: 4000
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    fullyLabeledReplicas: 3
+    observedGeneration: 3
+    readyReplicas: 3
+    replicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2025-04-13T22:50:26Z"
+    generation: 4
+    labels:
+      app: socket-server
+      pod-template-hash: 7cd6cfc68f
+    name: socket-server-deployment-7cd6cfc68f
+    namespace: social-platform
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: socket-server-deployment
+      uid: 5531b930-7dbd-426b-80bb-af136c95a9aa
+    resourceVersion: "5020"
+    uid: 91e31024-d74c-41f2-a03b-2abb663a435d
+  spec:
+    replicas: 0
+    selector:
+      matchLabels:
+        app: socket-server
+        pod-template-hash: 7cd6cfc68f
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: socket-server
+          pod-template-hash: 7cd6cfc68f
+      spec:
+        containers:
+        - env:
+          - name: REDIS_URL
+            value: redis://redis-service:6379
+          - name: NODE_ENV
+            value: production
+          image: social-platform-socket-server:latest
+          imagePullPolicy: Never
+          livenessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            successThreshold: 1
+            tcpSocket:
+              port: 4000
+            timeoutSeconds: 1
+          name: socket-server
+          ports:
+          - containerPort: 4000
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            successThreshold: 1
+            tcpSocket:
+              port: 4000
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 200m
+              memory: 256Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    observedGeneration: 4
+    replicas: 0
+- apiVersion: apps/v1
+  kind: StatefulSet
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"StatefulSet","metadata":{"annotations":{},"name":"mongodb","namespace":"social-platform"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"mongodb"}},"serviceName":"mongodb-service","template":{"metadata":{"labels":{"app":"mongodb"}},"spec":{"containers":[{"image":"mongo:latest","name":"mongodb","ports":[{"containerPort":27017}],"resources":{"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"200m","memory":"512Mi"}},"volumeMounts":[{"mountPath":"/data/db","name":"mongodb-storage"}]}]}},"volumeClaimTemplates":[{"metadata":{"name":"mongodb-storage"},"spec":{"accessModes":["ReadWriteOnce"],"resources":{"requests":{"storage":"5Gi"}}}}]}}
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    generation: 1
+    name: mongodb
+    namespace: social-platform
+    resourceVersion: "5777"
+    uid: 8cf22f28-3e87-4a6f-a7c0-01f89d004d8b
+  spec:
+    persistentVolumeClaimRetentionPolicy:
+      whenDeleted: Retain
+      whenScaled: Retain
+    podManagementPolicy: OrderedReady
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: mongodb
+    serviceName: mongodb-service
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: mongodb
+      spec:
+        containers:
+        - image: mongo:latest
+          imagePullPolicy: Always
+          name: mongodb
+          ports:
+          - containerPort: 27017
+            protocol: TCP
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1Gi
+            requests:
+              cpu: 200m
+              memory: 512Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /data/db
+            name: mongodb-storage
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    updateStrategy:
+      rollingUpdate:
+        partition: 0
+      type: RollingUpdate
+    volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        creationTimestamp: null
+        name: mongodb-storage
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+        volumeMode: Filesystem
+      status:
+        phase: Pending
+  status:
+    availableReplicas: 1
+    collisionCount: 0
+    currentReplicas: 1
+    currentRevision: mongodb-c557b67dc
+    observedGeneration: 1
+    readyReplicas: 1
+    replicas: 1
+    updateRevision: mongodb-c557b67dc
+    updatedReplicas: 1
+- apiVersion: autoscaling/v2
+  kind: HorizontalPodAutoscaler
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"autoscaling/v2","kind":"HorizontalPodAutoscaler","metadata":{"annotations":{},"name":"client-hpa","namespace":"social-platform"},"spec":{"maxReplicas":10,"metrics":[{"resource":{"name":"cpu","target":{"averageUtilization":70,"type":"Utilization"}},"type":"Resource"}],"minReplicas":2,"scaleTargetRef":{"apiVersion":"apps/v1","kind":"Deployment","name":"client-deployment"}}}
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    name: client-hpa
+    namespace: social-platform
+    resourceVersion: "9231"
+    uid: f464da08-830f-40fe-b2b7-1807ede7e7ad
+  spec:
+    maxReplicas: 10
+    metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 70
+          type: Utilization
+      type: Resource
+    minReplicas: 2
+    scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: client-deployment
+  status:
+    conditions:
+    - lastTransitionTime: "2025-04-14T00:13:37Z"
+      message: the HPA controller was able to get the target's current scale
+      reason: SucceededGetScale
+      status: "True"
+      type: AbleToScale
+    - lastTransitionTime: "2025-04-13T22:50:40Z"
+      message: 'the HPA was unable to compute the replica count: failed to get cpu
+        utilization: unable to get metrics for resource cpu: unable to fetch metrics
+        from resource metrics API: the server is currently unable to handle the request
+        (get pods.metrics.k8s.io)'
+      reason: FailedGetResourceMetric
+      status: "False"
+      type: ScalingActive
+    currentMetrics:
+    - type: ""
+    currentReplicas: 3
+    desiredReplicas: 0
+- apiVersion: autoscaling/v2
+  kind: HorizontalPodAutoscaler
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"autoscaling/v2","kind":"HorizontalPodAutoscaler","metadata":{"annotations":{},"name":"server-hpa","namespace":"social-platform"},"spec":{"maxReplicas":10,"metrics":[{"resource":{"name":"cpu","target":{"averageUtilization":70,"type":"Utilization"}},"type":"Resource"}],"minReplicas":2,"scaleTargetRef":{"apiVersion":"apps/v1","kind":"Deployment","name":"server-deployment"}}}
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    name: server-hpa
+    namespace: social-platform
+    resourceVersion: "4478"
+    uid: bc4ae0d9-c4bd-4b87-9517-b5dcdb0238e2
+  spec:
+    maxReplicas: 10
+    metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 70
+          type: Utilization
+      type: Resource
+    minReplicas: 2
+    scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: server-deployment
+  status:
+    conditions:
+    - lastTransitionTime: "2025-04-13T22:50:40Z"
+      message: the HPA controller was able to get the target's current scale
+      reason: SucceededGetScale
+      status: "True"
+      type: AbleToScale
+    - lastTransitionTime: "2025-04-13T22:50:40Z"
+      message: 'the HPA was unable to compute the replica count: failed to get cpu
+        utilization: unable to get metrics for resource cpu: unable to fetch metrics
+        from resource metrics API: the server is currently unable to handle the request
+        (get pods.metrics.k8s.io)'
+      reason: FailedGetResourceMetric
+      status: "False"
+      type: ScalingActive
+    currentMetrics:
+    - type: ""
+    currentReplicas: 3
+    desiredReplicas: 0
+- apiVersion: autoscaling/v2
+  kind: HorizontalPodAutoscaler
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"autoscaling/v2","kind":"HorizontalPodAutoscaler","metadata":{"annotations":{},"name":"socket-server-hpa","namespace":"social-platform"},"spec":{"maxReplicas":10,"metrics":[{"resource":{"name":"cpu","target":{"averageUtilization":70,"type":"Utilization"}},"type":"Resource"}],"minReplicas":2,"scaleTargetRef":{"apiVersion":"apps/v1","kind":"Deployment","name":"socket-server-deployment"}}}
+    creationTimestamp: "2025-04-13T22:50:25Z"
+    name: socket-server-hpa
+    namespace: social-platform
+    resourceVersion: "4479"
+    uid: ad8691bf-6ce3-4a40-a515-87f853068823
+  spec:
+    maxReplicas: 10
+    metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 70
+          type: Utilization
+      type: Resource
+    minReplicas: 2
+    scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: socket-server-deployment
+  status:
+    conditions:
+    - lastTransitionTime: "2025-04-13T22:50:40Z"
+      message: the HPA controller was able to get the target's current scale
+      reason: SucceededGetScale
+      status: "True"
+      type: AbleToScale
+    - lastTransitionTime: "2025-04-13T22:50:40Z"
+      message: 'the HPA was unable to compute the replica count: failed to get cpu
+        utilization: unable to get metrics for resource cpu: unable to fetch metrics
+        from resource metrics API: the server is currently unable to handle the request
+        (get pods.metrics.k8s.io)'
+      reason: FailedGetResourceMetric
+      status: "False"
+      type: ScalingActive
+    currentMetrics:
+    - type: ""
+    currentReplicas: 3
+    desiredReplicas: 0
+kind: List
+metadata:
+  resourceVersion: ""

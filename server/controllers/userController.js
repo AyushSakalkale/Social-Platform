@@ -7,7 +7,6 @@ import dotenv from "dotenv";
 import uploadFile from "./upload.js";
 import Notification from "../models/notificationSchema.js";
 import nodemailer from "nodemailer";
-import {USER_API_END_POINT} from "../../client/src/utils/constant.js";
 
 dotenv.config({});
 cloudinary.config({
